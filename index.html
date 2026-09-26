@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Muhammad Baqir — DevOps / MLOps Engineer</title>
+<meta name="description" content="Muhammad Baqir — DevOps, Cloud and Platform Engineer based in Germany.">
+<title>Muhammad Baqir — DevOps / Cloud Engineer</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --bg: #0E1416;
@@ -18,222 +21,894 @@
     --signal: #55B98C;
     --signal-dim: #2F4A3E;
     --amber: #D2A24C;
+
     --mono: 'IBM Plex Mono', ui-monospace, monospace;
     --sans: 'IBM Plex Sans', system-ui, sans-serif;
+
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+
   @media (prefers-color-scheme: light) {
     :root:not([data-theme="dark"]) {
-      --bg: #F5F3EE; --panel: #FFFFFF; --panel-line: #DEDAD0;
-      --ink: #1B211F; --ink-dim: #5B6663; --ink-faint: #8D958F;
-      --signal: #2C7A57; --signal-dim: #CFE6D9; --amber: #9A6C1E;
+      --bg: #F5F3EE;
+      --panel: #FFFFFF;
+      --panel-line: #DEDAD0;
+      --ink: #1B211F;
+      --ink-dim: #5B6663;
+      --ink-faint: #8D958F;
+      --signal: #2C7A57;
+      --signal-dim: #CFE6D9;
+      --amber: #9A6C1E;
     }
   }
+
   :root[data-theme="light"] {
-    --bg: #F5F3EE; --panel: #FFFFFF; --panel-line: #DEDAD0;
-    --ink: #1B211F; --ink-dim: #5B6663; --ink-faint: #8D958F;
-    --signal: #2C7A57; --signal-dim: #CFE6D9; --amber: #9A6C1E;
+    --bg: #F5F3EE;
+    --panel: #FFFFFF;
+    --panel-line: #DEDAD0;
+    --ink: #1B211F;
+    --ink-dim: #5B6663;
+    --ink-faint: #8D958F;
+    --signal: #2C7A57;
+    --signal-dim: #CFE6D9;
+    --amber: #9A6C1E;
   }
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    scroll-behavior: smooth;
+  }
+
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font-family: var(--sans); line-height: 1.55;
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
-  .status-row {
-    display: flex; align-items: center; gap: 8px;
-    font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint);
-    margin-bottom: 40px;
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 24px 96px;
   }
+
+  /* TOP BAR */
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 52px;
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+
   .dot {
-    width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--signal);
     box-shadow: 0 0 0 3px var(--signal-dim);
   }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px;
+    border: 1px solid var(--panel-line);
+    border-radius: 4px;
+    background: var(--panel);
+  }
+
+  .language-switcher button {
+    border: 0;
+    background: transparent;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 6px 9px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .language-switcher button.active {
+    background: var(--signal);
+    color: #08110D;
+    font-weight: 600;
+  }
+
+  .language-switcher button:hover:not(.active) {
+    color: var(--ink);
+  }
+
+  /* HEADER */
+
   h1 {
-    font-family: var(--mono); font-weight: 600; font-size: clamp(26px, 5vw, 36px);
-    line-height: 1.25; margin: 0 0 14px; letter-spacing: -0.01em;
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: clamp(26px, 5vw, 36px);
+    line-height: 1.25;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
   }
+
   .role-line {
-    font-size: 17px; color: var(--ink-dim); max-width: 46ch; margin: 0 0 28px;
+    font-size: 17px;
+    color: var(--ink-dim);
+    max-width: 52ch;
+    margin: 0 0 28px;
   }
+
   .contact-row {
-    display: flex; flex-wrap: wrap; gap: 6px 14px;
-    font-family: var(--mono); font-size: 13px; margin-bottom: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    font-family: var(--mono);
+    font-size: 13px;
+    margin-bottom: 56px;
   }
-  .contact-row a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--panel-line); }
-  .contact-row a:hover { border-color: var(--signal); color: var(--signal); }
-  section { margin-bottom: 52px; }
+
+  .contact-row a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--panel-line);
+  }
+
+  .contact-row a:hover {
+    border-color: var(--signal);
+    color: var(--signal);
+  }
+
+  /* SECTIONS */
+
+  section {
+    margin-bottom: 52px;
+  }
+
   .sec-head {
-    font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
-    text-transform: lowercase; margin: 0 0 18px;
-    display: flex; align-items: baseline; gap: 10px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-faint);
+    text-transform: lowercase;
+    margin: 0 0 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
   }
-  .sec-head::after { content: ""; flex: 1; height: 1px; background: var(--panel-line); }
-  p { color: var(--ink-dim); max-width: 68ch; }
-  p.lead { color: var(--ink); font-size: 16px; }
+
+  .sec-head::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--panel-line);
+  }
+
+  p {
+    color: var(--ink-dim);
+    max-width: 68ch;
+  }
+
+  p.lead {
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  /* METRICS */
+
   .metric-row {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-    background: var(--panel-line); border: 1px solid var(--panel-line);
-    margin: 20px 0 24px; border-radius: 3px; overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--panel-line);
+    border: 1px solid var(--panel-line);
+    margin: 20px 0 24px;
+    border-radius: 3px;
+    overflow: hidden;
   }
-  .metric { background: var(--panel); padding: 14px 12px; }
-  .metric .num { font-family: var(--mono); font-size: 20px; color: var(--signal); display: block; }
-  .metric .lbl { font-size: 11.5px; color: var(--ink-faint); }
-  .job { border-left: 2px solid var(--panel-line); padding: 2px 0 2px 20px; margin-bottom: 32px; position: relative; }
+
+  .metric {
+    background: var(--panel);
+    padding: 14px 12px;
+  }
+
+  .metric .num {
+    font-family: var(--mono);
+    font-size: 20px;
+    color: var(--signal);
+    display: block;
+  }
+
+  .metric .lbl {
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
+
+  /* EXPERIENCE */
+
+  .job {
+    border-left: 2px solid var(--panel-line);
+    padding: 2px 0 2px 20px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
   .job::before {
-    content: ""; position: absolute; left: -5px; top: 8px;
-    width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--signal);
   }
-  .job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 6px; }
-  .job-title { font-weight: 600; font-size: 16px; }
-  .job-date { font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); white-space: nowrap; }
-  .job ul { margin: 8px 0 0; padding-left: 18px; }
-  .job li { color: var(--ink-dim); margin-bottom: 5px; }
-  .job li::marker { color: var(--signal); }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-bottom: 6px;
+  }
+
+  .job-title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .job-date {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .job ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+  }
+
+  .job li {
+    color: var(--ink-dim);
+    margin-bottom: 5px;
+  }
+
+  .job li::marker {
+    color: var(--signal);
+  }
+
+  /* PROJECTS */
+
   .proj {
-    background: var(--panel); border: 1px solid var(--panel-line); border-radius: 4px;
-    padding: 18px 20px; margin-bottom: 14px;
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
   }
-  .proj-title { font-weight: 600; font-size: 15.5px; margin-bottom: 6px; }
-  .proj p { margin: 0 0 10px; font-size: 14.5px; }
-  .stack { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); margin-bottom: 10px; }
-  .proj-links { display: flex; gap: 16px; font-family: var(--mono); font-size: 12.5px; }
-  .proj-links a { color: var(--signal); text-decoration: none; }
-  .proj-links a:hover { text-decoration: underline; }
-  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .proj-title {
+    font-weight: 600;
+    font-size: 15.5px;
+    margin-bottom: 6px;
+  }
+
+  .proj p {
+    margin: 0 0 10px;
+    font-size: 14.5px;
+  }
+
+  .stack {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+
+  .proj-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+  }
+
+  .proj-links a {
+    color: var(--signal);
+    text-decoration: none;
+  }
+
+  .proj-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* SKILLS */
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
   .skill {
-    font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim);
-    border: 1px solid var(--panel-line); padding: 5px 10px; border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    border: 1px solid var(--panel-line);
+    padding: 5px 10px;
+    border-radius: 3px;
   }
+
+  /* CTA */
+
   .cta {
-    border-top: 1px solid var(--panel-line); padding-top: 32px; margin-top: 8px;
+    border-top: 1px solid var(--panel-line);
+    padding-top: 32px;
+    margin-top: 8px;
   }
+
   .cta a.primary {
-    display: inline-block; font-family: var(--mono); font-size: 14px;
-    background: var(--signal); color: #08110D; padding: 12px 20px;
-    border-radius: 3px; text-decoration: none; font-weight: 600;
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 14px;
+    background: var(--signal);
+    color: #08110D;
+    padding: 12px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 600;
   }
-  .cta a.primary:hover { opacity: 0.9; }
-  footer { color: var(--ink-faint); font-size: 12.5px; font-family: var(--mono); margin-top: 48px; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+
+  .cta a.primary:hover {
+    opacity: 0.9;
+  }
+
+  footer {
+    color: var(--ink-faint);
+    font-size: 12.5px;
+    font-family: var(--mono);
+    margin-top: 48px;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 2px;
+  }
+
   @media (max-width: 520px) {
-    .metric-row { grid-template-columns: 1fr 1fr; }
-    .job-head { flex-direction: column; }
+    .wrap {
+      padding-top: 24px;
+    }
+
+    .top-bar {
+      align-items: flex-start;
+    }
+
+    .status-row {
+      max-width: 210px;
+    }
+
+    .metric-row {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .metric:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .job-head {
+      flex-direction: column;
+    }
   }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    * {
+      transition: none !important;
+    }
+  }
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
 
-  <div class="status-row"><span class="dot"></span> open to work — germany, remote, hybrid</div>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+
+    <div class="status-row">
+      <span class="dot"></span>
+      <span data-en>open to work — Germany, remote, hybrid</span>
+      <span data-de>offen für neue Möglichkeiten — Deutschland, Remote, Hybrid</span>
+    </div>
+
+    <div class="language-switcher" aria-label="Language selection">
+      <button type="button" id="enBtn" class="active" onclick="setLanguage('en')">
+        EN
+      </button>
+      <button type="button" id="deBtn" onclick="setLanguage('de')">
+        DE
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- HEADER -->
 
   <h1>Muhammad Baqir</h1>
-  <p class="role-line">MLOps-leaning DevOps Engineer — forecasting pipelines, monitoring, and cost control on AWS/Azure.</p>
+
+  <p class="role-line">
+    <span data-en>
+      DevOps / Cloud Engineer focused on reliable systems, automation, monitoring and practical cloud solutions.
+    </span>
+
+    <span data-de>
+      DevOps / Cloud Engineer mit Schwerpunkt auf zuverlässigen Systemen, Automatisierung, Monitoring und praxisnahen Cloud-Lösungen.
+    </span>
+  </p>
 
   <div class="contact-row">
     <a href="mailto:hzindabad44@gmail.com">hzindabad44@gmail.com</a>
-    <a href="https://github.com/Baqir110" target="_blank" rel="noopener">github.com/Baqir110</a>
-    <a href="https://linkedin.com/in/muhammad-baqir-it" target="_blank" rel="noopener">linkedin.com/in/muhammad-baqir-it</a>
+
+    <a href="https://github.com/Baqir110" target="_blank" rel="noopener">
+      github.com/Baqir110
+    </a>
+
+    <a href="https://linkedin.com/in/muhammad-baqir-it" target="_blank" rel="noopener">
+      linkedin.com/in/muhammad-baqir-it
+    </a>
   </div>
 
+
+  <!-- ABOUT -->
+
   <section>
-    <p class="sec-head">about</p>
-    <p class="lead">Cut infrastructure incidents by 35% and cloud spend by 18% — without a single headline-grabbing outage. That's the kind of unglamorous, compounding work I do.</p>
-    <p>I build the boring-but-critical layer underneath software: containerized deployments, monitoring that catches problems before users do, and automation that removes the manual steps engineers dread. My background spans enterprise network infrastructure — DNS, VPNs, firewalls, TLS — and modern cloud stacks — AWS, Azure, Kubernetes, Docker — the old plumbing and the new pipes.</p>
-    <p>Currently finishing an MSc in International Software Systems Science at Otto-Friedrich-Universität Bamberg. Open to Werkstudent roles, full-time DevOps/Cloud/Platform positions, thesis partnerships, and short-term contract work.</p>
+
+    <p class="sec-head">
+      <span data-en>about</span>
+      <span data-de>über mich</span>
+    </p>
+
+    <p class="lead">
+      <span data-en>
+        I enjoy building systems that are reliable, easy to maintain and straightforward for other engineers to work with.
+      </span>
+
+      <span data-de>
+        Ich entwickle Systeme, die zuverlässig, wartbar und für andere Entwickler einfach zu verstehen und zu betreiben sind.
+      </span>
+    </p>
+
+    <p>
+      <span data-en>
+        My work covers infrastructure, cloud platforms, deployments, monitoring and automation. I like removing repetitive manual work, making problems easier to find and keeping systems stable in day-to-day operation.
+      </span>
+
+      <span data-de>
+        Mein Schwerpunkt liegt auf Infrastruktur, Cloud-Plattformen, Deployments, Monitoring und Automatisierung. Ich reduziere wiederkehrende manuelle Aufgaben, mache Fehler leichter auffindbar und sorge für einen stabilen täglichen Betrieb.
+      </span>
+    </p>
+
+    <p>
+      <span data-en>
+        I have experience with AWS, Azure, Kubernetes, Docker, Linux and CI/CD, as well as enterprise network infrastructure including DNS, VPNs, firewalls and TLS.
+      </span>
+
+      <span data-de>
+        Ich habe Erfahrung mit AWS, Azure, Kubernetes, Docker, Linux und CI/CD sowie mit Enterprise-Netzwerkinfrastruktur einschließlich DNS, VPNs, Firewalls und TLS.
+      </span>
+    </p>
+
+    <p>
+      <span data-en>
+        I am currently completing an MSc in International Software Systems Science at Otto-Friedrich-Universität Bamberg. I am open to Werkstudent positions, full-time DevOps / Cloud / Platform roles, thesis projects and suitable contract work.
+      </span>
+
+      <span data-de>
+        Derzeit absolviere ich meinen Master in International Software Systems Science an der Otto-Friedrich-Universität Bamberg. Ich bin offen für Werkstudentenstellen, Vollzeitstellen im Bereich DevOps / Cloud / Platform, Abschlussarbeiten und passende Projektarbeit.
+      </span>
+    </p>
+
     <div class="metric-row">
-      <div class="metric"><span class="num">−35%</span><span class="lbl">infra downtime</span></div>
-      <div class="metric"><span class="num">−18%</span><span class="lbl">cloud spend</span></div>
-      <div class="metric"><span class="num">20+</span><span class="lbl">systems unified</span></div>
+
+      <div class="metric">
+        <span class="num">−35%</span>
+
+        <span class="lbl">
+          <span data-en>infrastructure downtime</span>
+          <span data-de>Infrastruktur-Ausfallzeit</span>
+        </span>
+      </div>
+
+      <div class="metric">
+        <span class="num">−18%</span>
+
+        <span class="lbl">
+          <span data-en>cloud costs</span>
+          <span data-de>Cloud-Kosten</span>
+        </span>
+      </div>
+
+      <div class="metric">
+        <span class="num">20+</span>
+
+        <span class="lbl">
+          <span data-en>systems monitored</span>
+          <span data-de>überwachte Systeme</span>
+        </span>
+      </div>
+
     </div>
+
   </section>
 
+
+  <!-- EXPERIENCE -->
+
   <section>
-    <p class="sec-head">experience</p>
+
+    <p class="sec-head">
+      <span data-en>experience</span>
+      <span data-de>berufserfahrung</span>
+    </p>
+
 
     <div class="job">
+
       <div class="job-head">
-        <span class="job-title">Parkyeri — DevOps Engineer</span>
-        <span class="job-date">Jun 2022 – Dec 2023</span>
+        <span class="job-title">
+          Parkyeri — DevOps Engineer
+        </span>
+
+        <span class="job-date">
+          Jun 2022 – Dec 2023
+        </span>
       </div>
+
       <ul>
-        <li>Cut inventory shortages ~20% across 200+ items with Python/TensorFlow forecasting on AWS/Azure.</li>
-        <li>Reduced infrastructure downtime ~35% leading AWS migration and monitoring across Nagios, Zabbix, VMware.</li>
-        <li>Cut cloud costs ~18% through infrastructure and workflow optimization.</li>
-        <li>Raised first-call resolution from 61% to 84% for a 5-person support team.</li>
+
+        <li>
+          <span data-en>
+            Reduced inventory shortages by around 20% across 200+ items using forecasting and data analysis on AWS and Azure.
+          </span>
+
+          <span data-de>
+            Reduzierung von Fehlbeständen um rund 20% bei mehr als 200 Artikeln durch Prognosen und Datenanalyse auf AWS und Azure.
+          </span>
+        </li>
+
+        <li>
+          <span data-en>
+            Reduced infrastructure downtime by around 35% while supporting an AWS migration and improving monitoring with Nagios, Zabbix and VMware.
+          </span>
+
+          <span data-de>
+            Reduzierung der Infrastruktur-Ausfallzeit um rund 35% bei der Unterstützung einer AWS-Migration und Verbesserung des Monitorings mit Nagios, Zabbix und VMware.
+          </span>
+        </li>
+
+        <li>
+          <span data-en>
+            Reduced cloud costs by around 18% through infrastructure and workflow improvements.
+          </span>
+
+          <span data-de>
+            Reduzierung der Cloud-Kosten um rund 18% durch Verbesserungen an Infrastruktur und Arbeitsabläufen.
+          </span>
+        </li>
+
+        <li>
+          <span data-en>
+            Improved first-call resolution from 61% to 84% for a five-person support team.
+          </span>
+
+          <span data-de>
+            Steigerung der First-Call-Resolution von 61% auf 84% in einem fünfköpfigen Support-Team.
+          </span>
+        </li>
+
       </ul>
+
     </div>
+
 
     <div class="job">
+
       <div class="job-head">
-        <span class="job-title">Hexagon Helix — DevOps Engineer</span>
-        <span class="job-date">Mar 2018 – Mar 2022</span>
+        <span class="job-title">
+          Hexagon Helix — DevOps Engineer
+        </span>
+
+        <span class="job-date">
+          Mar 2018 – Mar 2022
+        </span>
       </div>
+
       <ul>
-        <li>Unified 20+ systems under real-time monitoring with Prometheus, Grafana, Azure Monitor.</li>
-        <li>Cut average troubleshooting time ~25% by building incident-response and root-cause runbooks.</li>
-        <li>Ran enterprise network infrastructure — DNS, VPNs, firewalls, TLS, Cisco/Juniper — across 15+ systems.</li>
+
+        <li>
+          <span data-en>
+            Brought 20+ systems into a common monitoring setup using Prometheus, Grafana and Azure Monitor.
+          </span>
+
+          <span data-de>
+            Mehr als 20 Systeme in eine gemeinsame Monitoring-Umgebung mit Prometheus, Grafana und Azure Monitor integriert.
+          </span>
+        </li>
+
+        <li>
+          <span data-en>
+            Reduced average troubleshooting time by around 25% through incident-response procedures and root-cause documentation.
+          </span>
+
+          <span data-de>
+            Reduzierung der durchschnittlichen Fehleranalysezeit um rund 25% durch Incident-Response-Prozesse und Dokumentation von Fehlerursachen.
+          </span>
+        </li>
+
+        <li>
+          <span data-en>
+            Managed enterprise network infrastructure including DNS, VPNs, firewalls, TLS, Cisco and Juniper across 15+ systems.
+          </span>
+
+          <span data-de>
+            Betreuung von Enterprise-Netzwerkinfrastruktur einschließlich DNS, VPNs, Firewalls, TLS, Cisco und Juniper für mehr als 15 Systeme.
+          </span>
+        </li>
+
       </ul>
+
     </div>
+
   </section>
 
+
+  <!-- PROJECTS -->
+
   <section>
-    <p class="sec-head">projects</p>
+
+    <p class="sec-head">
+      <span data-en>projects</span>
+      <span data-de>projekte</span>
+    </p>
+
 
     <div class="proj">
-      <div class="proj-title">AI-Powered IT Operations Platform</div>
-      <p>Real-time infrastructure telemetry, RAG-based runbook retrieval via ChromaDB, and automated anomaly detection and alerting. Built because production incidents don't come with a lab environment — so I built one.</p>
-      <div class="stack">Python 3.11 · FastAPI · PostgreSQL · Redis · Prometheus · Grafana · Docker · Kubernetes</div>
-      <div class="proj-links">
-        <a href="https://github.com/Baqir110/ai-it-ops-assistant" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://ai-it-ops-assistant.onrender.com" target="_blank" rel="noopener">Live demo</a>
-        <a href="https://ai-it-ops-assistant.onrender.com/docs" target="_blank" rel="noopener">API docs</a>
+
+      <div class="proj-title">
+        IT Operations & Monitoring Platform
       </div>
+
+      <p>
+        <span data-en>
+          A practical platform for collecting infrastructure data, checking system health, finding unusual behaviour and making operational information easier to access. It includes monitoring, runbook search and automated alerts.
+        </span>
+
+        <span data-de>
+          Eine praxisorientierte Plattform zur Erfassung von Infrastruktur-Daten, Überprüfung des Systemzustands, Erkennung ungewöhnlichen Verhaltens und einfacheren Bereitstellung von Betriebsinformationen. Sie umfasst Monitoring, Runbook-Suche und automatische Benachrichtigungen.
+        </span>
+      </p>
+
+      <div class="stack">
+        Python 3.11 · FastAPI · PostgreSQL · Redis · Prometheus · Grafana · Docker · Kubernetes
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/Baqir110/ai-it-ops-assistant" target="_blank" rel="noopener">
+          GitHub
+        </a>
+
+        <a href="https://ai-it-ops-assistant.onrender.com" target="_blank" rel="noopener">
+          <span data-en>Live demo</span>
+          <span data-de>Live-Demo</span>
+        </a>
+
+        <a href="https://ai-it-ops-assistant.onrender.com/docs" target="_blank" rel="noopener">
+          API docs
+        </a>
+      </div>
+
     </div>
 
-    <div class="proj">
-      <div class="proj-title">Customer Churn Analytics</div>
-      <p>Real-time and batch churn prediction microservice with a feature-explanation endpoint and data-drift monitoring.</p>
-      <div class="stack">Python · Scikit-Learn · FastAPI · Streamlit · Evidently AI · Docker</div>
-      <div class="proj-links">
-        <a href="https://github.com/Baqir110/customer-churn-analytics" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://customer-churn-dashboard-1mrz.onrender.com" target="_blank" rel="noopener">Live demo</a>
-      </div>
-    </div>
 
     <div class="proj">
-      <div class="proj-title">Real-Time Data Engineering Pipeline</div>
-      <p>ETL ingestion, data validation, and FastAPI analytics endpoints.</p>
-      <div class="stack">Python · Pandas · SQLAlchemy · PostgreSQL · FastAPI</div>
-      <div class="proj-links">
-        <a href="https://github.com/Baqir110/real-time-pipeline" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://real-time-pipeline-dashboard-ihfj.onrender.com" target="_blank" rel="noopener">Live demo</a>
+
+      <div class="proj-title">
+        Customer Churn Analytics
       </div>
+
+      <p>
+        <span data-en>
+          A service for analysing customer churn using both real-time and batch data. It includes prediction, feature explanations and monitoring for changes in incoming data.
+        </span>
+
+        <span data-de>
+          Ein Service zur Analyse von Kundenabwanderung mit Echtzeit- und Batch-Daten. Enthalten sind Prognosen, Erklärungen wichtiger Merkmale und Monitoring von Veränderungen in den Eingangsdaten.
+        </span>
+      </p>
+
+      <div class="stack">
+        Python · Scikit-Learn · FastAPI · Streamlit · Evidently · Docker
+      </div>
+
+      <div class="proj-links">
+
+        <a href="https://github.com/Baqir110/customer-churn-analytics" target="_blank" rel="noopener">
+          GitHub
+        </a>
+
+        <a href="https://customer-churn-dashboard-1mrz.onrender.com" target="_blank" rel="noopener">
+          <span data-en>Live demo</span>
+          <span data-de>Live-Demo</span>
+        </a>
+
+      </div>
+
     </div>
+
+
+    <div class="proj">
+
+      <div class="proj-title">
+        Real-Time Data Engineering Pipeline
+      </div>
+
+      <p>
+        <span data-en>
+          A data pipeline for collecting, validating and processing information, with FastAPI endpoints for accessing the results.
+        </span>
+
+        <span data-de>
+          Eine Datenpipeline zum Erfassen, Validieren und Verarbeiten von Daten mit FastAPI-Endpunkten für den Zugriff auf die Ergebnisse.
+        </span>
+      </p>
+
+      <div class="stack">
+        Python · Pandas · SQLAlchemy · PostgreSQL · FastAPI
+      </div>
+
+      <div class="proj-links">
+
+        <a href="https://github.com/Baqir110/real-time-pipeline" target="_blank" rel="noopener">
+          GitHub
+        </a>
+
+        <a href="https://real-time-pipeline-dashboard-ihfj.onrender.com" target="_blank" rel="noopener">
+          <span data-en>Live demo</span>
+          <span data-de>Live-Demo</span>
+        </a>
+
+      </div>
+
+    </div>
+
   </section>
 
+
+  <!-- SKILLS -->
+
   <section>
-    <p class="sec-head">skills</p>
+
+    <p class="sec-head">
+      <span data-en>skills</span>
+      <span data-de>kenntnisse</span>
+    </p>
+
     <div class="skills">
-      <span class="skill">AWS</span><span class="skill">Azure</span><span class="skill">Kubernetes</span>
-      <span class="skill">Docker</span><span class="skill">CI/CD</span><span class="skill">Python</span>
-      <span class="skill">FastAPI</span><span class="skill">PostgreSQL</span><span class="skill">Redis</span>
-      <span class="skill">Prometheus</span><span class="skill">Grafana</span><span class="skill">MLOps</span>
-      <span class="skill">Network infra (DNS/VPN/TLS)</span>
+
+      <span class="skill">AWS</span>
+      <span class="skill">Azure</span>
+      <span class="skill">Kubernetes</span>
+      <span class="skill">Docker</span>
+      <span class="skill">CI/CD</span>
+      <span class="skill">Python</span>
+      <span class="skill">FastAPI</span>
+      <span class="skill">PostgreSQL</span>
+      <span class="skill">Redis</span>
+      <span class="skill">Prometheus</span>
+      <span class="skill">Grafana</span>
+      <span class="skill">Linux</span>
+      <span class="skill">Git</span>
+      <span class="skill">Network Infrastructure</span>
+      <span class="skill">DNS / VPN / TLS</span>
+
     </div>
+
   </section>
+
+
+  <!-- CONTACT -->
 
   <section class="cta">
-    <p class="sec-head">contact</p>
-    <p style="margin-bottom:20px;">Open to Werkstudent, full-time, thesis, and contract opportunities — on staff or on a project basis.</p>
-    <a class="primary" href="mailto:hzindabad44@gmail.com">Email me</a>
+
+    <p class="sec-head">
+      <span data-en>contact</span>
+      <span data-de>kontakt</span>
+    </p>
+
+    <p style="margin-bottom:20px;">
+
+      <span data-en>
+        I am open to Werkstudent positions, full-time roles, thesis projects and suitable contract opportunities in DevOps, Cloud and Platform Engineering.
+      </span>
+
+      <span data-de>
+        Ich bin offen für Werkstudentenstellen, Vollzeitstellen, Abschlussarbeiten und passende Projekte in den Bereichen DevOps, Cloud und Platform Engineering.
+      </span>
+
+    </p>
+
+    <a class="primary" href="mailto:hzindabad44@gmail.com">
+
+      <span data-en>Get in touch</span>
+      <span data-de>Kontakt aufnehmen</span>
+
+    </a>
+
   </section>
 
-  <footer>last updated · 2026</footer>
+
+  <footer>
+    <span data-en>last updated · 2026</span>
+    <span data-de>zuletzt aktualisiert · 2026</span>
+  </footer>
+
 </div>
+
+
+<script>
+  function setLanguage(language) {
+    const isGerman = language === "de";
+
+    document.documentElement.lang = language;
+
+    document.querySelectorAll("[data-en]").forEach(element => {
+      element.style.display = isGerman ? "none" : "";
+    });
+
+    document.querySelectorAll("[data-de]").forEach(element => {
+      element.style.display = isGerman ? "" : "none";
+    });
+
+    document.getElementById("enBtn").classList.toggle("active", !isGerman);
+    document.getElementById("deBtn").classList.toggle("active", isGerman);
+
+    localStorage.setItem("preferredLanguage", language);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLanguage = localStorage.getItem("preferredLanguage");
+
+    if (savedLanguage === "de") {
+      setLanguage("de");
+    } else {
+      setLanguage("en");
+    }
+  });
+</script>
+
 </body>
 </html>

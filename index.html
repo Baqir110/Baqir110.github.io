@@ -85,7 +85,11 @@ p{max-width:780px;color:var(--muted)}
 .contact-section{padding:34px;border:1px solid var(--line);border-radius:12px;background:radial-gradient(circle at 100% 0,#63d29c16,transparent 45%),var(--panel)}
 .primary{margin-top:8px;padding:12px 18px;color:#06100b;background:var(--green);border-radius:7px;font:600 12px var(--mono);transition:.25s}.primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px #63d29c33}.primary:after{content:"→";transition:.2s}.primary:hover:after{transform:translateX(4px)}
 footer{margin-top:55px;color:var(--faint);font:10px var(--mono);text-align:center}
-[data-de]{display:none}
+
+/* Clean CSS visibility switching */
+html[lang="en"] [data-de] { display: none !important; }
+html[lang="de"] [data-en] { display: none !important; }
+
 @keyframes down{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
 @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(35px,25px) scale(1.08)}}
 @keyframes frame{0%,100%{transform:rotate(5deg) translate(0)}50%{transform:rotate(8deg) translate(5px,-5px)}}
@@ -187,14 +191,23 @@ footer{margin-top:55px;color:var(--faint);font:10px var(--mono);text-align:cente
 
 <script>
 function setLanguage(language){
-  const de=language==="de";
-  document.documentElement.lang=language;
-  document.querySelectorAll("[data-en]").forEach(e=>e.style.display=de?"none":"");
-  document.querySelectorAll("[data-de]").forEach(e=>e.style.display=de?"":"none");
-  enBtn.classList.toggle("active",!de);deBtn.classList.toggle("active",de);
-  localStorage.setItem("preferredLanguage",language);
+  document.documentElement.setAttribute('lang', language);
+  
+  const de = language === "de";
+  const enBtn = document.getElementById("enBtn");
+  const deBtn = document.getElementById("deBtn");
+  
+  if (enBtn && deBtn) {
+    enBtn.classList.toggle("active", !de);
+    deBtn.classList.toggle("active", de);
+  }
+  
+  localStorage.setItem("preferredLanguage", language);
 }
-setLanguage(localStorage.getItem("preferredLanguage")||"en");
+
+document.addEventListener("DOMContentLoaded", () => {
+  setLanguage(localStorage.getItem("preferredLanguage") || "en");
+});
 
 addEventListener("scroll",()=>{
   const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;

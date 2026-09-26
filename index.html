@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Muhammad Baqir — DevOps and Cloud Engineer in Germany.">
+<meta name="description" content="Muhammad Baqir — DevOps and Cloud Engineer based in Germany.">
 <title>Muhammad Baqir — DevOps & Cloud Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,14 +79,14 @@ p{max-width:780px;color:var(--muted)}
 .project:hover{transform:translateY(-6px);border-color:#63d29c59;box-shadow:0 20px 60px #0005}
 .project:before{content:"";position:absolute;width:190px;height:190px;right:-100px;top:-100px;border-radius:50%;background:var(--glow);opacity:0;transition:.3s}.project:hover:before{opacity:1}
 .project-title,.project p,.stack,.project-links{position:relative;z-index:1}
-.project-title{font-weight:600;font-size:17px;margin-bottom:8px}.project p{font-size:14px;margin:0 0 15px}.stack{font:11px/1.8 var(--mono);color:var(--faint);margin-bottom:15px}
+.project-title{font-weight:600;font-size:17px;margin-bottom:8px}.company-project{min-height:270px}.project-kicker{position:relative;z-index:1;margin-bottom:8px;color:var(--green);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase}.case-impact{position:relative;z-index:1;display:flex;align-items:baseline;gap:10px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}.case-impact span{font:600 20px var(--mono);color:var(--green)}.case-impact small{font-size:11px;color:var(--faint)}.project p{font-size:14px;margin:0 0 15px}.stack{font:11px/1.8 var(--mono);color:var(--faint);margin-bottom:15px}
 .project-links{display:flex;gap:17px}.project-links a{color:var(--green);font:11px var(--mono);text-decoration:none}.project-links a:hover{text-decoration:underline}
 .skills{display:flex;flex-wrap:wrap;gap:8px}.skill{padding:7px 11px;border:1px solid var(--line);border-radius:6px;color:var(--muted);font:11px var(--mono);background:#ffffff03;transition:.2s}.skill:hover{transform:translateY(-3px);color:var(--green);border-color:#63d29c66}
 .contact-section{padding:34px;border:1px solid var(--line);border-radius:12px;background:radial-gradient(circle at 100% 0,#63d29c16,transparent 45%),var(--panel)}
 .primary{margin-top:8px;padding:12px 18px;color:#06100b;background:var(--green);border-radius:7px;font:600 12px var(--mono);transition:.25s}.primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px #63d29c33}.primary:after{content:"→";transition:.2s}.primary:hover:after{transform:translateX(4px)}
 footer{margin-top:55px;color:var(--faint);font:10px var(--mono);text-align:center}
 
-/* Clean CSS visibility switching */
+/* Clean language display control */
 html[lang="en"] [data-de] { display: none !important; }
 html[lang="de"] [data-en] { display: none !important; }
 
@@ -122,7 +122,7 @@ html[lang="de"] [data-en] { display: none !important; }
     <div>
       <div class="eyebrow">DevOps · Cloud · Platform</div>
       <h1>Muhammad <span class="name-accent">Baqir</span></h1>
-      <p class="hero-role"><span data-en><strong>DevOps / Cloud Engineer</strong> focused on building strong systems, smart automation, and cost-saving cloud setups.</span><span data-de><strong>DevOps / Cloud Engineer</strong> mit Fokus auf gute Systeme, kluge Automatisierung und günstige Cloud-Lösungen.</span></p>
+      <p class="hero-role"><span data-en><strong>DevOps / Cloud Engineer</strong> focused on strong systems, smart automation, and cost-saving cloud setups.</span><span data-de><strong>DevOps / Cloud Engineer</strong> mit Fokus auf gute Systeme, kluge Automatisierung und günstige Cloud-Lösungen.</span></p>
       <div class="contact">
         <a href="mailto:hzindabad44@gmail.com">Email</a>
         <a href="https://github.com/Baqir110" target="_blank" rel="noopener">GitHub</a>
@@ -169,7 +169,59 @@ html[lang="de"] [data-en] { display: none !important; }
   </section>
 
   <section class="reveal">
-    <div class="section-head"><span data-en>Projects</span><span data-de>Projekte</span></div>
+    <div class="section-head"><span data-en>Work Case Studies</span><span data-de>Praxisbeispiele</span></div>
+    <p class="lead">
+      <span data-en>Main accomplishments from my past engineering roles.</span>
+      <span data-de>Wichtigste Erfolge aus meinen bisherigen Positionen.</span>
+    </p>
+    <div class="projects">
+      <article class="project company-project">
+        <div class="project-kicker">Parkyeri · DevOps Engineer</div>
+        <div class="project-title">AWS Infrastructure Migration & Monitoring</div>
+        <p><span data-en>Helped move servers to AWS while setting up health monitoring tools like Nagios and Zabbix.</span><span data-de>Hilfe bei dem Umzug zu AWS und Einrichtung von Monitoring-Tools wie Nagios und Zabbix.</span></p>
+        <div class="stack">AWS · VMware · Nagios · Zabbix · Monitoring</div>
+        <div class="case-impact"><span>−35%</span><small><span data-en>system downtime</span><span data-de>Ausfallszeit</span></small></div>
+      </article>
+      <article class="project company-project">
+        <div class="project-kicker">Parkyeri · DevOps Engineer</div>
+        <div class="project-title">Inventory Forecasting & Data Analysis</div>
+        <p><span data-en>Used cloud data tools on AWS and Azure to predict stock levels and avoid missing items.</span><span data-de>Nutzung von Cloud-Daten-Tools auf AWS und Azure zur besseren Bestandsplanung.</span></p>
+        <div class="stack">AWS · Azure · Data Analysis · Reporting</div>
+        <div class="case-impact"><span>−20%</span><small><span data-en>inventory shortages</span><span data-de>Fehlbestände</span></small></div>
+      </article>
+      <article class="project company-project">
+        <div class="project-kicker">Parkyeri · DevOps Engineer</div>
+        <div class="project-title">Support Operations Improvement</div>
+        <p><span data-en>Trained support staff and improved steps to fix customer problems on the first call.</span><span data-de>Verbesserung der Support-Schritte zur schnelleren Lösung von Kundenproblemen.</span></p>
+        <div class="stack">Support · Troubleshooting · Incident Handling</div>
+        <div class="case-impact"><span>61% → 84%</span><small><span data-en>first-call fixes</span><span data-de>Erfolg beim ersten Anruf</span></small></div>
+      </article>
+      <article class="project company-project">
+        <div class="project-kicker">Hexagon Helix · DevOps Engineer</div>
+        <div class="project-title">Centralized Infrastructure Monitoring</div>
+        <p><span data-en>Connected 20+ servers into one easy dashboard to detect errors fast.</span><span data-de>Anbindung von 20+ Servern an ein einfaches Dashboard zur schnellen Fehlererkennung.</span></p>
+        <div class="stack">Prometheus · Grafana · Azure Monitor</div>
+        <div class="case-impact"><span>20+</span><small><span data-en>monitored servers</span><span data-de>überwachte Server</span></small></div>
+      </article>
+      <article class="project company-project">
+        <div class="project-kicker">Hexagon Helix · DevOps Engineer</div>
+        <div class="project-title">Incident Response & Troubleshooting</div>
+        <p><span data-en>Wrote clear troubleshooting steps for server outages to speed up fixing bugs.</span><span data-de>Erstellung klarer Anleitungen für Ausfälle zur schnelleren Fehlerbehebung.</span></p>
+        <div class="stack">Incident Response · Documentation · Testing</div>
+        <div class="case-impact"><span>−25%</span><small><span data-en>fix time</span><span data-de>Reparaturzeit</span></small></div>
+      </article>
+      <article class="project company-project">
+        <div class="project-kicker">Hexagon Helix · DevOps Engineer</div>
+        <div class="project-title">Enterprise Network Infrastructure</div>
+        <p><span data-en>Set up firewalls, VPNs, and secure network routing using Cisco and Juniper gear.</span><span data-de>Einrichtung von Firewalls, VPNs und sicheren Netzwerken mit Cisco und Juniper.</span></p>
+        <div class="stack">Cisco · Juniper · DNS · VPN · Firewalls</div>
+        <div class="case-impact"><span>15+</span><small><span data-en>systems supported</span><span data-de>betreute Systeme</span></small></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span data-en>Personal Projects</span><span data-de>Eigene Projekte</span></div>
     <div class="projects">
       <article class="project"><div class="project-title">IT Operations & Monitoring Platform</div><p><span data-en>A smart dashboard that checks server health, tracks system speed, and alerts engineers to problems early.</span><span data-de>Ein Dashboard zur Überwachung von Servern, das Probleme frühzeitig erkennt.</span></p><div class="stack">Python 3.11 · FastAPI · PostgreSQL · Redis · Prometheus · Grafana · Docker · Kubernetes</div><div class="project-links"><a href="https://github.com/Baqir110/ai-it-ops-assistant" target="_blank">GitHub</a><a href="https://ai-it-ops-assistant.onrender.com" target="_blank">Live demo</a><a href="https://ai-it-ops-assistant.onrender.com/docs" target="_blank">API docs</a></div></article>
       <article class="project"><div class="project-title">Customer Churn Analytics</div><p><span data-en>A tool that uses data to show which customers might leave and why, helping teams take action early.</span><span data-de>Ein Tool, das zeigt, welche Kunden kündigen könnten und warum.</span></p><div class="stack">Python · Scikit-Learn · FastAPI · Streamlit · Evidently · Docker</div><div class="project-links"><a href="https://github.com/Baqir110/customer-churn-analytics" target="_blank">GitHub</a><a href="https://customer-churn-dashboard-1mrz.onrender.com" target="_blank">Live demo</a></div></article>
@@ -179,7 +231,7 @@ html[lang="de"] [data-en] { display: none !important; }
 
   <section class="reveal">
     <div class="section-head"><span data-en>Key Skills</span><span data-de>Fähigkeiten</span></div>
-    <div class="skills"><span class="skill">AWS</span><span class="skill">Azure</span><span class="skill">Kubernetes</span><span class="skill">Docker</span><span class="skill">CI/CD</span><span class="skill">Linux</span><span class="skill">Python</span><span class="skill">FastAPI</span><span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">Prometheus</span><span class="skill">Grafana</span><span class="skill">Git</span><span class="skill">Networks</span><span class="skill">DNS / VPN / Security</span></div>
+    <div class="skills"><span class="skill">AWS</span><span class="skill">Azure</span><span class="skill">Kubernetes</span><span class="skill">Docker</span><span class="skill">CI/CD</span><span class="skill">Linux</span><span class="skill">Python</span><span class="skill">FastAPI</span><span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">Prometheus</span><span class="skill">Grafana</span><span class="skill">Azure Monitor</span><span class="skill">Nagios</span><span class="skill">Zabbix</span><span class="skill">VMware</span><span class="skill">Git</span><span class="skill">Networks</span><span class="skill">Cisco</span><span class="skill">Juniper</span><span class="skill">DNS</span><span class="skill">VPN</span><span class="skill">Firewalls</span><span class="skill">Security</span></div>
   </section>
 
   <section class="reveal">

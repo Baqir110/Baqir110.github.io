@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Baqir — DevOps / MLOps Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1416;
+    --panel: #151C1F;
+    --panel-line: #263136;
+    --ink: #E7EDEE;
+    --ink-dim: #8FA0A6;
+    --ink-faint: #56656B;
+    --signal: #55B98C;
+    --signal-dim: #2F4A3E;
+    --amber: #D2A24C;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F5F3EE; --panel: #FFFFFF; --panel-line: #DEDAD0;
+      --ink: #1B211F; --ink-dim: #5B6663; --ink-faint: #8D958F;
+      --signal: #2C7A57; --signal-dim: #CFE6D9; --amber: #9A6C1E;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F5F3EE; --panel: #FFFFFF; --panel-line: #DEDAD0;
+    --ink: #1B211F; --ink-dim: #5B6663; --ink-faint: #8D958F;
+    --signal: #2C7A57; --signal-dim: #CFE6D9; --amber: #9A6C1E;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+  .status-row {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint);
+    margin-bottom: 40px;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
+    box-shadow: 0 0 0 3px var(--signal-dim);
+  }
+  h1 {
+    font-family: var(--mono); font-weight: 600; font-size: clamp(26px, 5vw, 36px);
+    line-height: 1.25; margin: 0 0 14px; letter-spacing: -0.01em;
+  }
+  .role-line {
+    font-size: 17px; color: var(--ink-dim); max-width: 46ch; margin: 0 0 28px;
+  }
+  .contact-row {
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    font-family: var(--mono); font-size: 13px; margin-bottom: 56px;
+  }
+  .contact-row a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--panel-line); }
+  .contact-row a:hover { border-color: var(--signal); color: var(--signal); }
+  section { margin-bottom: 52px; }
+  .sec-head {
+    font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
+    text-transform: lowercase; margin: 0 0 18px;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .sec-head::after { content: ""; flex: 1; height: 1px; background: var(--panel-line); }
+  p { color: var(--ink-dim); max-width: 68ch; }
+  p.lead { color: var(--ink); font-size: 16px; }
+  .metric-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--panel-line); border: 1px solid var(--panel-line);
+    margin: 20px 0 24px; border-radius: 3px; overflow: hidden;
+  }
+  .metric { background: var(--panel); padding: 14px 12px; }
+  .metric .num { font-family: var(--mono); font-size: 20px; color: var(--signal); display: block; }
+  .metric .lbl { font-size: 11.5px; color: var(--ink-faint); }
+  .job { border-left: 2px solid var(--panel-line); padding: 2px 0 2px 20px; margin-bottom: 32px; position: relative; }
+  .job::before {
+    content: ""; position: absolute; left: -5px; top: 8px;
+    width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
+  }
+  .job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 6px; }
+  .job-title { font-weight: 600; font-size: 16px; }
+  .job-date { font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); white-space: nowrap; }
+  .job ul { margin: 8px 0 0; padding-left: 18px; }
+  .job li { color: var(--ink-dim); margin-bottom: 5px; }
+  .job li::marker { color: var(--signal); }
+  .proj {
+    background: var(--panel); border: 1px solid var(--panel-line); border-radius: 4px;
+    padding: 18px 20px; margin-bottom: 14px;
+  }
+  .proj-title { font-weight: 600; font-size: 15.5px; margin-bottom: 6px; }
+  .proj p { margin: 0 0 10px; font-size: 14.5px; }
+  .stack { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); margin-bottom: 10px; }
+  .proj-links { display: flex; gap: 16px; font-family: var(--mono); font-size: 12.5px; }
+  .proj-links a { color: var(--signal); text-decoration: none; }
+  .proj-links a:hover { text-decoration: underline; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill {
+    font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim);
+    border: 1px solid var(--panel-line); padding: 5px 10px; border-radius: 3px;
+  }
+  .cta {
+    border-top: 1px solid var(--panel-line); padding-top: 32px; margin-top: 8px;
+  }
+  .cta a.primary {
+    display: inline-block; font-family: var(--mono); font-size: 14px;
+    background: var(--signal); color: #08110D; padding: 12px 20px;
+    border-radius: 3px; text-decoration: none; font-weight: 600;
+  }
+  .cta a.primary:hover { opacity: 0.9; }
+  footer { color: var(--ink-faint); font-size: 12.5px; font-family: var(--mono); margin-top: 48px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+  @media (max-width: 520px) {
+    .metric-row { grid-template-columns: 1fr 1fr; }
+    .job-head { flex-direction: column; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="status-row"><span class="dot"></span> open to work — germany, remote, hybrid</div>
+
+  <h1>Muhammad Baqir</h1>
+  <p class="role-line">MLOps-leaning DevOps Engineer — forecasting pipelines, monitoring, and cost control on AWS/Azure.</p>
+
+  <div class="contact-row">
+    <a href="mailto:hzindabad44@gmail.com">hzindabad44@gmail.com</a>
+    <a href="https://github.com/Baqir110" target="_blank" rel="noopener">github.com/Baqir110</a>
+    <a href="https://linkedin.com/in/muhammad-baqir-it" target="_blank" rel="noopener">linkedin.com/in/muhammad-baqir-it</a>
+  </div>
+
+  <section>
+    <p class="sec-head">about</p>
+    <p class="lead">Cut infrastructure incidents by 35% and cloud spend by 18% — without a single headline-grabbing outage. That's the kind of unglamorous, compounding work I do.</p>
+    <p>I build the boring-but-critical layer underneath software: containerized deployments, monitoring that catches problems before users do, and automation that removes the manual steps engineers dread. My background spans enterprise network infrastructure — DNS, VPNs, firewalls, TLS — and modern cloud stacks — AWS, Azure, Kubernetes, Docker — the old plumbing and the new pipes.</p>
+    <p>Currently finishing an MSc in International Software Systems Science at Otto-Friedrich-Universität Bamberg. Open to Werkstudent roles, full-time DevOps/Cloud/Platform positions, thesis partnerships, and short-term contract work.</p>
+    <div class="metric-row">
+      <div class="metric"><span class="num">−35%</span><span class="lbl">infra downtime</span></div>
+      <div class="metric"><span class="num">−18%</span><span class="lbl">cloud spend</span></div>
+      <div class="metric"><span class="num">20+</span><span class="lbl">systems unified</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-head">experience</p>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Parkyeri — DevOps Engineer</span>
+        <span class="job-date">Jun 2022 – Dec 2023</span>
+      </div>
+      <ul>
+        <li>Cut inventory shortages ~20% across 200+ items with Python/TensorFlow forecasting on AWS/Azure.</li>
+        <li>Reduced infrastructure downtime ~35% leading AWS migration and monitoring across Nagios, Zabbix, VMware.</li>
+        <li>Cut cloud costs ~18% through infrastructure and workflow optimization.</li>
+        <li>Raised first-call resolution from 61% to 84% for a 5-person support team.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="job-title">Hexagon Helix — DevOps Engineer</span>
+        <span class="job-date">Mar 2018 – Mar 2022</span>
+      </div>
+      <ul>
+        <li>Unified 20+ systems under real-time monitoring with Prometheus, Grafana, Azure Monitor.</li>
+        <li>Cut average troubleshooting time ~25% by building incident-response and root-cause runbooks.</li>
+        <li>Ran enterprise network infrastructure — DNS, VPNs, firewalls, TLS, Cisco/Juniper — across 15+ systems.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-head">projects</p>
+
+    <div class="proj">
+      <div class="proj-title">AI-Powered IT Operations Platform</div>
+      <p>Real-time infrastructure telemetry, RAG-based runbook retrieval via ChromaDB, and automated anomaly detection and alerting. Built because production incidents don't come with a lab environment — so I built one.</p>
+      <div class="stack">Python 3.11 · FastAPI · PostgreSQL · Redis · Prometheus · Grafana · Docker · Kubernetes</div>
+      <div class="proj-links">
+        <a href="https://github.com/Baqir110/ai-it-ops-assistant" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://ai-it-ops-assistant.onrender.com" target="_blank" rel="noopener">Live demo</a>
+        <a href="https://ai-it-ops-assistant.onrender.com/docs" target="_blank" rel="noopener">API docs</a>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-title">Customer Churn Analytics</div>
+      <p>Real-time and batch churn prediction microservice with a feature-explanation endpoint and data-drift monitoring.</p>
+      <div class="stack">Python · Scikit-Learn · FastAPI · Streamlit · Evidently AI · Docker</div>
+      <div class="proj-links">
+        <a href="https://github.com/Baqir110/customer-churn-analytics" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://customer-churn-dashboard-1mrz.onrender.com" target="_blank" rel="noopener">Live demo</a>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-title">Real-Time Data Engineering Pipeline</div>
+      <p>ETL ingestion, data validation, and FastAPI analytics endpoints.</p>
+      <div class="stack">Python · Pandas · SQLAlchemy · PostgreSQL · FastAPI</div>
+      <div class="proj-links">
+        <a href="https://github.com/Baqir110/real-time-pipeline" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://real-time-pipeline-dashboard-ihfj.onrender.com" target="_blank" rel="noopener">Live demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-head">skills</p>
+    <div class="skills">
+      <span class="skill">AWS</span><span class="skill">Azure</span><span class="skill">Kubernetes</span>
+      <span class="skill">Docker</span><span class="skill">CI/CD</span><span class="skill">Python</span>
+      <span class="skill">FastAPI</span><span class="skill">PostgreSQL</span><span class="skill">Redis</span>
+      <span class="skill">Prometheus</span><span class="skill">Grafana</span><span class="skill">MLOps</span>
+      <span class="skill">Network infra (DNS/VPN/TLS)</span>
+    </div>
+  </section>
+
+  <section class="cta">
+    <p class="sec-head">contact</p>
+    <p style="margin-bottom:20px;">Open to Werkstudent, full-time, thesis, and contract opportunities — on staff or on a project basis.</p>
+    <a class="primary" href="mailto:hzindabad44@gmail.com">Email me</a>
+  </section>
+
+  <footer>last updated · 2026</footer>
+</div>
+</body>
+</html>
